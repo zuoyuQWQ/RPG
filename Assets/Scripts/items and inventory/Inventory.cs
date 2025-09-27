@@ -216,23 +216,29 @@ public class Inventory : MonoBehaviour
 
     private void AddToInventory(ItemData _item)
     {
-        if (inventoryDictiatiory.TryGetValue(_item, out InventoryItem value))
-        {
-            value.AddStack();
-        }
-        else
-        {
-            InventoryItem newItem = new InventoryItem(_item);
-            inventory.Add(newItem);
-            inventoryDictiatiory.Add(_item, newItem);
-        }
+        InventoryItem newItem = new InventoryItem(_item);
+        inventory.Add(newItem);
     }
 
     public void RemoveItem(ItemData _item)
     {
-        if(inventoryDictiatiory.TryGetValue(_item, out InventoryItem value))
+        // 如果是装备类型，则直接在背包列表中查找并移除
+        if (_item.itemType == ItemType.Equipment)
         {
-            if(value.stackSize <= 1)
+            // 从后往前遍历以安全地移除列表项
+            for (int i = inventory.Count - 1; i >= 0; i--)
+            {
+                if (inventory[i].data == _item)
+                {
+                    inventory.RemoveAt(i);
+                    // 找到并移除一个后即可退出，因为装备是唯一的
+                    break; 
+                }
+            }
+        }
+        if (inventoryDictiatiory.TryGetValue(_item, out InventoryItem value))
+        {
+            if (value.stackSize <= 1)
             {
                 inventory.Remove(value);
                 inventoryDictiatiory.Remove(_item);
