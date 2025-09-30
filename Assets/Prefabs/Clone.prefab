@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2649507833443305612}
   - component: {fileID: 4992455561590067952}
   - component: {fileID: 1713570325323235440}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Clone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -51400753
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6392157}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6162640429824004748}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: AttackCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
